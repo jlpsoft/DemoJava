@@ -16,8 +16,41 @@
 
 	<title>Modificar Empleado</title>
 </head>
-<body>
-        <%
+<body class="grey lighten-3">
+
+<div>
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content center-align">
+		<li><a class="center-align" href="listEmployee.jsp">Listado de Empleado</a></li>
+		<li><a class="center-align" href="insertEmployee.jsp">Agregar Empleado</a></li>
+		<li class="divider"></li>
+	</ul>
+	<ul id="dropdown2" class="dropdown-content">
+		<li><a class="center-align" href="listEmployee.jsp">Listado de Empleado</a></li>
+		<li><a class="center-align" href="insertEmployee.jsp">Agregar Empleado</a></li>
+		<li class="divider"></li>
+	</ul>
+	<nav class=" grey darken-4" role="navigation">
+		<div class="nav-wrapper container">
+			<a  id="logo-container" class=" center brand-logo">Proyecto JAVA</a>
+			<a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="left hide-on-med-and-down">
+				<!-- Dropdown Trigger -->
+				<li><a href="listEmployee.jsp">Inicio</a></li>
+				<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+			</ul>
+			<!-- mobile -->
+			<ul class="side-nav grey lighten-4" id="mobile-demo">
+				<div>
+					<li><a href="#">Inicio</a></li>
+					<!-- Dropdown Trigger -->
+					<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Menu<i class="material-icons right">arrow_drop_down</i></a></li><br>
+				</div>
+			</ul>
+		</div>
+	</nav>
+
+<%
 			DaoEmployee dao = new DaoEmployee();
 			int ida = Integer.parseInt((String)request.getAttribute("employee_id"));
 			BeanEmployee employee = dao.getEmployeeById(ida);
@@ -69,8 +102,9 @@
 				<td class="r"><input type="text" name="commission_pct" value="<%= employee.getCommission_pct() %>"/></td>
 			</tr>
 			<tr>
-				<td class="l"><input type="submit" value="edit" /></td>
-				<td class="r"><input type="reset" value="Cancelar" /></td>
+				<td class="l"><a class=" waves-effect waves-light btn"><input type="submit" value="edit" /> </a>
+				</td>
+				<td class="r"><a class=" waves-effect waves-light btn"><input type="reset" value="Limpar" /></a></td>
 			</tr>
 		</table>
 	</form>
