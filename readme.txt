@@ -6,4 +6,3 @@ Integrantes:
     Vilchez Malasquez Carlos
 Grupo:
     Anonymous
-    
